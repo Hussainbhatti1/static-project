@@ -1,8 +1,7 @@
-# Use an official Nginx image to serve the static files
 FROM nginx:alpine
 
-# Copy the static website files into the Nginx server
+# Copy static website files into the container
 COPY . /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+# Copy the custom nginx configuration file to replace the default
+COPY nginx.conf /etc/nginx/nginx.conf
